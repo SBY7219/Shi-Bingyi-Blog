@@ -1,0 +1,108 @@
+site_name: Shi Bingyi's Blog
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: zh
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: teal
+      accent: purple
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: teal
+      accent: lime
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/SBY7219
+
+markdown_extensions:
+  - meta
+  - nl2br
+  - admonition
+  - pymdownx.details
+  - footnotes
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tilde
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - md_in_html # image configuration
+  - tables
+
+plugins:
+  - search:
+      separator: '[\s\u200b\-]'  # Enhance Chinese Search
+  - callouts # transform obsidian callout to material admonition
+  - glightbox
+  - tags
+  - ezlinks
+  - mkdocs-jupyter:
+      include: ["*.ipynb"]
+  - blog:    # The settings of blogs
+      enabled: true
+      blog_dir: ./blog
+      blog_toc: true
+      post_date_format: full
+      post_dir: "{blog}/articles"
+      categories: true
+      categories_name: Categories
+      archive_name: "按年份归类"
+      post_readtime_words_per_minute: 220
+      post_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js
+  - https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
+  - javascripts/config.js    # Customazation js
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
+  - css/extra.css    # Customazation css
+extra:
+  attachments: "imgs"
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+    feedback:
+      title: 本页面内容是否对您有帮助?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: 有帮助
+          data: 1
+          note: >-
+            谢谢！
+        - icon: material/thumb-down-outline
+          name: 没帮助
+          data: 0
+          note: >- 
+            不可能没帮助！
+copyright: |
+  &copy; 2024 <a href="https://github.com/SBY7219"  target="_blank" rel="noopener">Shi Bingyi</a>
